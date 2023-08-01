@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+      <form class="form-check-inline">
+        <fieldset class="form-group col-sm-11"></fieldset>
+        <fieldset class="form-group col-sm-1">
+          <a class="btn btn-primary" [routerLink]="['/tasks/new']">+</a>
+        </fieldset>
+      </form>
+      <br>
+      <table class="table table-striped">
+        <thead>
+
+        <tr class="row">
+          <th class="col-sm-3">Title</th>
+          <th class="col-sm-3">Date</th>
+          <th class="col-sm-3">State</th>
+          <th class="col-sm-3">Actions</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        <tr *ngFor="let task of tasks | async" class="row">
+          <td class="col-sm-3"><i>{{task.title}}</i></td>
+          <td class="col-sm-3"><i>{{task.date | date : 'yyyy-MM-dd':'UTC'}}</i></td>
+          <td class="col-sm-3"><i>{{task.state}}</i></td>
+          <td class="col-sm-3">
+            <button class="btn btn-info" [routerLink]="['/tasks',task._id,'edit']">Edit</button>
+            <button class="btn btn-danger" (click)="deleteTask(task._id!)">Delete</button>
+          </td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

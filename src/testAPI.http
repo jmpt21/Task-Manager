@@ -1,0 +1,25 @@
+### GET All tasks
+GET http://localhost:3000/api/task
+
+### POST task
+POST http://localhost:3000/api/task
+Content-Type: application/json
+
+{
+  "title": "Task 5"
+}
+
+### GET one task
+GET http://localhost:3000/api/task/64c248a78dc80d1024042209
+
+### PUT task
+PUT http://localhost:3000/api/task/64c248a78dc80d1024042209
+Content-Type: application/json
+
+{
+  "title" : "Important task ~ Now!",
+  "state" : "Done"
+}
+
+### DELETE task
+DELETE http://localhost:3000/api/task/64c248f18dc80d1024042211

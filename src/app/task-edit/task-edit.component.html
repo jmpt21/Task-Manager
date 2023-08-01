@@ -1,0 +1,104 @@
+<div *ngIf="edit; else create" class="container-lg">
+  <h3>Update Task's data</h3>
+  <form #form2="ngForm" (ngSubmit)="onSubmit(form2.value)">
+    <fieldset>
+      <label class="form-label" for="titleEdit">Title:</label>
+      <br>
+      <input type="text" name="titleEdit" [(ngModel)]="task.title" id="titleEdit" class="form-control" required/>
+    </fieldset>
+
+    <fieldset>
+      <label class="form-label" for="dateEdit">Date:</label>
+      <br>
+      <input type="date" name="dateEdit" [ngModel]="task.date | date: 'yyyy-MM-dd':'UTC'" (ngModelChange)="task.date = $event" id="dateEdit" class="form-control" required/>
+    </fieldset>
+
+    <fieldset>
+      <label class="form-label" for="stateEdit">State:</label>
+      <select name="stateEdit" [(ngModel)]="task.state" id="stateEdit" class="form-control" required>
+        <option *ngFor="let task of taskStateSelect" [value]="task.value">{{task.value}}</option>
+      </select>
+    </fieldset>
+
+    <br>
+
+    <fieldset class="text-center">
+      <button type="submit" class="btn btn-outline-primary">Submit</button>
+    </fieldset>
+  </form>
+</div>
+
+<ng-template #create>
+  <div class="container-lg">
+    <h3>Create a new Task</h3>
+    <form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
+      <fieldset>
+        <label class="form-label" for="titleCreate">Title:</label>
+        <input type="text" name="title" ngModel id="titleCreate" class="form-control" required/>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label" for="dateCreate">Date:</label>
+        <input type="date" name="date" ngModel id="dateCreate" class="form-control" required/>
+      </fieldset>
+
+      <fieldset>
+        <label class="form-label" for="stateCreate">State</label>
+        <select name="state" ngModel [(ngModel)]="selectedOption" id="stateCreate" class="form-control" required>
+          <option *ngFor="let task of taskStateSelect" [value]="task.value">{{task.value}}</option>
+        </select>
+      </fieldset>
+
+      <br>
+
+      <fieldset class="text-center">
+        <button type="submit" class="btn btn-outline-primary">Create Task</button>
+      </fieldset>
+    </form>
+  </div>
+</ng-template>
+
+<!--<div class="row">
+  <div class="col-sm-12">
+    <form #taskForm="ngForm" (ngSubmit)="onSubmit(taskForm.value)">
+      <fieldset class="form-group">
+        <div class="col-sm-12">
+          <label class="control-label" for="title">Title</label>
+          <input (ngModelChange)="task.title=$event" [ngModel]="task.title" name="title" required type="text" id="title" />
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-3">
+          <label class="control-label" for="date">Date</label>
+          <input (ngModelChange)="task.date=$event"
+                 [ngModel]="task.date | date: 'yyyy-MM-dd':'UTC'"
+                 class="form-control"
+                 name="date"
+                 type="date"
+                 id="date"
+                 required
+          />
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-3">
+          <label class="control-label" for="state">State</label>
+          <select class="form-control" required ngModel (ngModelChange)="selectedOption=$event" [ngModel]="selectedOption" name="state" id="state">
+            <option *ngFor="let state of taskStateSelect" [value]="state">{{state.value}}</option>
+          </select>
+        </div>
+      </fieldset>
+
+      <fieldset class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" [disabled]="!taskForm.form.valid">
+            Submit
+          </button>
+        </div>
+      </fieldset>
+
+    </form>
+  </div>
+</div>-->
