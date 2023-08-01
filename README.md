@@ -10,10 +10,12 @@ Plus:
 
 ## For developers
 
-1. Run `node server.js` to launch the server (express) and the built angular application, stored in the `dist/` directory.
-2. If you want to do a change in the project, always run `ng build` before `node server.js`.
-3. If you want to do a change in the server, see `server/` directory.
-4. This is a practice simple project. I am proud of myself :), and I am aware that the project can improve.
+1. Run `npm install` to install the dependencies.
+2. Run `ng build` to build the application angular.
+3. Run `node server.js` to launch the server (express) and the built angular application, stored in the `dist/` directory.
+4. If you want to do a change in the project, always run `ng build` before `node server.js`.
+5. If you want to do a change in the server, see `server/` directory.
+6. This is a practice simple project. I am proud of myself :), and I am aware that the project can improve.
 
 ## Development server
 
