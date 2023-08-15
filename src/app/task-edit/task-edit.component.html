@@ -43,7 +43,7 @@
       </fieldset>
 
       <fieldset>
-        <label class="form-label" for="stateCreate">State</label>
+        <label class="form-label" for="stateCreate">State:</label>
         <select name="state" ngModel [(ngModel)]="selectedOption" id="stateCreate" class="form-control" required>
           <option *ngFor="let task of taskStateSelect" [value]="task.value">{{task.value}}</option>
         </select>
